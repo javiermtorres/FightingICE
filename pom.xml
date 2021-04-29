@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>FightingICE</groupId>
+  <artifactId>FightingICE</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+ <properties>
+   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+ </properties>
+ <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <!-- any other plugins -->
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+	<!-- https://mvnrepository.com/artifact/org.glassfish/javax.json -->
+	<dependency>
+	    <groupId>org.glassfish</groupId>
+	    <artifactId>javax.json</artifactId>
+	    <version>1.0.4</version>
+	</dependency>
+	<!-- MISSING: rt for https://github.com/bartdag/py4j/releases/tag/0.10.4 -->
+	<!-- Added jar with: -->
+	<!-- mvn install:install-file -Dfile=lib/py4j0.10.4.jar -DgroupId=org.py4j -DartifactId=py4j -Dversion=0.10.4 -Dpackaging=jar -DgeneratePom=true -->
+  <dependency>
+    <groupId>org.py4j</groupId>
+    <artifactId>py4j</artifactId>
+    <version>0.10.4</version>
+    <type>jar</type>
+  </dependency>
+  <!-- https://mvnrepository.com/artifact/org.lwjgl/lwjgl -->
+	<dependency>
+    <groupId>org.lwjgl</groupId>
+    <artifactId>lwjgl</artifactId>
+    <version>3.1.2</version>
+  </dependency>
+  <!-- FIXME last util version is 2.9.3, maybe superseded?-->
+  <!-- https://mvnrepository.com/artifact/org.lwjgl.lwjgl/lwjgl_util -->
+  <dependency>
+    <groupId>org.lwjgl.lwjgl</groupId>
+    <artifactId>lwjgl_util</artifactId>
+    <version>2.9.3</version>
+    <!-- Need to exclude complete lwjgl 2.9.3 -->
+    <exclusions>
+      <exclusion>  <!-- declare the exclusion here -->
+        <groupId>org.lwjgl.lwjgl</groupId>
+        <artifactId>lwjgl</artifactId>
+      </exclusion>
+    </exclusions>     
+  </dependency>
+	<!-- https://mvnrepository.com/artifact/org.lwjgl/lwjgl-openal -->
+	<dependency>
+	    <groupId>org.lwjgl</groupId>
+	    <artifactId>lwjgl-openal</artifactId>
+	    <version>3.1.2</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.lwjgl/lwjgl-opengl -->
+	<dependency>
+	    <groupId>org.lwjgl</groupId>
+	    <artifactId>lwjgl-opengl</artifactId>
+	    <version>3.1.2</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.lwjgl/lwjgl-glfw -->
+	<dependency>
+	    <groupId>org.lwjgl</groupId>
+	    <artifactId>lwjgl-glfw</artifactId>
+	    <version>3.1.2</version>
+	</dependency>
+    
+  </dependencies></project>

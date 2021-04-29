@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=lib/py4j0.10.4.jar -DgroupId=org.py4j -DartifactId=py4j -Dversion=0.10.4 -Dpackaging=jar -DgeneratePom=true
